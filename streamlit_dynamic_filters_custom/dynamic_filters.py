@@ -159,11 +159,12 @@ class DynamicFilters:
             max_value = num_columns
             col_list = st.columns(num_columns, gap=gap)
 
+        counter2=1
+        
         for filter_name in st.session_state[self.filters_name].keys():
             filtered_df = self.filter_df(filter_name)
             options = filtered_df[filter_name].unique().tolist()
 
-            st.write(options)
             
             # Remove selected values that are not in options anymore
             valid_selections = [v for v in st.session_state[self.filters_name][filter_name] if v in options]
@@ -196,6 +197,10 @@ class DynamicFilters:
                 st.session_state[self.filters_name][filter_name] = selected
                 filters_changed = True
 
+            counter2+= 1
+
+            st.write(counter2)
+        
         if filters_changed:
             st.rerun()
 
