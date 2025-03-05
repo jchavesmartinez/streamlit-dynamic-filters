@@ -174,14 +174,14 @@ class DynamicFilters:
 
             if location == 'sidebar':
                 with st.sidebar:
-                    selected = st.multiselect(f"Select {int(time.time() * 1000)}", sorted(options),
+                    selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name],
-                                              key= int(time.time() * 1000))
+                                              key= int(time.time() * 1000)*counter2)
             elif location == 'columns' and num_columns > 0:
                 with col_list[counter - 1]:
-                    selected = st.multiselect(f"Select {str(int(time.time() * 1000)),counter2}", sorted(options),
+                    selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name],
-                                              key=int(time.time() * 1000))
+                                              key=int(time.time() * 1000)*counter2)
 
                 # increase counter and reset to 1 if max_value is reached
                 counter += 1
