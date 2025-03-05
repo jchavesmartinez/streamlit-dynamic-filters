@@ -176,12 +176,12 @@ class DynamicFilters:
                 with st.sidebar:
                     selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name],
-                                              key= int(time.time() * 1000)*counter2)
+                                              key=self.filters_name + filter_name)
             elif location == 'columns' and num_columns > 0:
                 with col_list[counter - 1]:
                     selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name],
-                                              key=int(time.time() * 1000)*counter2)
+                                              key=self.filters_name + filter_name)
 
                 # increase counter and reset to 1 if max_value is reached
                 counter += 1
@@ -191,7 +191,7 @@ class DynamicFilters:
             else:
                 selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                           default=st.session_state[self.filters_name][filter_name],
-                                              key=int(time.time() * 1000))
+                                              key=self.filters_name + filter_name)
 
             if selected != st.session_state[self.filters_name][filter_name]:
                 st.session_state[self.filters_name][filter_name] = selected
