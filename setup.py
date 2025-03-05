@@ -12,8 +12,8 @@ with open("CHANGELOG.md", "r", encoding="utf-8") as fh:
 setup(
     name="streamlit_dynamic_filters_custom",
     version=VERSION,
-    author="Oleksandr Arsentiev",
-    author_email="<arsentiev9393@gmail.com>",
+    author="Jose Chaves",
+    author_email="<jchavesm2017@gmail.com>",
     description=DESCRIPTION,
     long_description=f"{readme}\n\n{changelog}",
     long_description_content_type="text/markdown",
@@ -21,5 +21,5 @@ setup(
     install_requires=['streamlit'],
     keywords=['streamlit', 'custom', 'component'],
     license="MIT",
-    url="https://github.com/arsentievalex/streamlit-dynamic-filters",
+    url="https://github.com/jchavesmartinez/streamlit-dynamic-filters-custom",
 )
