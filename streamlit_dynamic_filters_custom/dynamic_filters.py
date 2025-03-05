@@ -181,11 +181,9 @@ class DynamicFilters:
                                               key=self.filters_name + filter_name)
             elif location == 'columns' and num_columns > 0:
                 with col_list[counter - 1]:
-                    #selected = st.multiselect(f"Select {self.filters_name + filter_name}", sorted(options),
-                    #                          default=st.session_state[self.filters_name][filter_name],
-                    #                          key=self.filters_name + filter_name)
-                    st.write(self.filters_name + filter_name)
-
+                    selected = st.multiselect(f"Select {self.filters_name + filter_name}", sorted(options),
+                                              default=st.session_state[self.filters_name][filter_name],
+                                              key=self.filters_name + filter_name)
 
                 # increase counter and reset to 1 if max_value is reached
                 counter += 1
