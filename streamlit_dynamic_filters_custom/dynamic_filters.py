@@ -163,6 +163,7 @@ class DynamicFilters:
             filtered_df = self.filter_df(filter_name)
             options = filtered_df[filter_name].unique().tolist()
 
+            st.write(options)
             
             # Remove selected values that are not in options anymore
             valid_selections = [v for v in st.session_state[self.filters_name][filter_name] if v in options]
