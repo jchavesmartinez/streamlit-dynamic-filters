@@ -1,6 +1,8 @@
 import streamlit as st
 from streamlit.errors import StreamlitAPIException
 import pandas as pd
+import time
+
 
 
 class DynamicFilters:
@@ -161,6 +163,7 @@ class DynamicFilters:
             filtered_df = self.filter_df(filter_name)
             options = filtered_df[filter_name].unique().tolist()
 
+            
             # Remove selected values that are not in options anymore
             valid_selections = [v for v in st.session_state[self.filters_name][filter_name] if v in options]
             if valid_selections != st.session_state[self.filters_name][filter_name]:
@@ -171,12 +174,12 @@ class DynamicFilters:
                 with st.sidebar:
                     selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name],
-                                              key=self.filters_name + filter_name)
+                                              key= int(time.time() * 1000))
             elif location == 'columns' and num_columns > 0:
                 with col_list[counter - 1]:
                     selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name],
-                                              key=self.filters_name + filter_name)
+                                              key=int(time.time() * 1000))
 
                 # increase counter and reset to 1 if max_value is reached
                 counter += 1
@@ -186,7 +189,7 @@ class DynamicFilters:
             else:
                 selected = st.multiselect(f"Select {filter_name}", sorted(options),
                                           default=st.session_state[self.filters_name][filter_name],
-                                              key=self.filters_name + filter_name)
+                                              key=int(time.time() * 1000))
 
             if selected != st.session_state[self.filters_name][filter_name]:
                 st.session_state[self.filters_name][filter_name] = selected
