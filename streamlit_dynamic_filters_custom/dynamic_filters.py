@@ -177,7 +177,7 @@ class DynamicFilters:
                                               key= int(time.time() * 1000))
             elif location == 'columns' and num_columns > 0:
                 with col_list[counter - 1]:
-                    selected = st.multiselect(f"Select {filter_name}", sorted(options),
+                    selected = st.multiselect(f"Select {int(time.time() * 1000)}", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name],
                                               key=int(time.time() * 1000))
 
