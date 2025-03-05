@@ -46,6 +46,8 @@ class DynamicFilters:
         self.filters = {filter_name: [] for filter_name in filters}
         self.check_state()
 
+        st.write(filters)
+
     def check_state(self):
         """Initializes the session state with filters if not already set."""
         # if 'filters' not in st.session_state:
